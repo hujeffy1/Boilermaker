@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './client/index.js',
+  entry: ['./client/index.js'],
   output: {
     path: __dirname,
     filename: './public/bundle.js',
@@ -9,15 +9,11 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['react', 'es2015'],
+          presets: ['@babel/preset-react'],
         },
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
       },
     ],
   },
